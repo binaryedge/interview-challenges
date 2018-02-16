@@ -1,0 +1,139 @@
+FORMAT: 1A
+HOST: http://localhost:8000
+
+# dataleaks-api
+
+The data leaks API with random domains and emails. These include:
+
+  * Search for domain
+  * Search for email
+
+## DataLeak API [/api/v1]
+
+### Search if an email is in some data leaks [GET /api/v1/email/dataleaks{?email}]
+
+Returns a list of dataleaks where the email is present.
+
++ Parameters
+
+    + email: email (string) - One email
+
++ Request
+    + Headers
+
+            Authorization: JWT jwtoken
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "dataleak1"
+            },
+            {
+                "name": "dataleak_abc"
+            },
+            {
+                "name": "dataleak_123"
+            },
+            {
+                "name": "dataleak_gg12"
+            }
+        ]
+
+
+
++ Response 404 (application/json)
+
+        {
+            "detail": "Not found."
+        }
+
++ Response 401 (application/json)
+
+        {
+            "detail": "Authentication credentials were not provided."
+        }
+
+
+### Search if a domain is in some data leaks [GET /api/v1/domain/dataleaks{?domain}]
+
+Returns a list of dataleaks where the domain is present.
+
++ Parameters
+
+    + domain: domain (string) - One domain
+
++ Request
+    + Headers
+
+            Authorization: JWT jwtoken
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "dataleak1"
+            },
+            {
+                "name": "dataleak_abc"
+            },
+            {
+                "name": "dataleak_123"
+            },
+            {
+                "name": "dataleak_gg12"
+            }
+        ]
+
+
+
++ Response 404 (application/json)
+
+        {
+            "detail": "Not found."
+        }
+
+
++ Response 401 (application/json)
+
+        {
+            "detail": "Authentication credentials were not provided."
+        }
+
+## DataLeak API [/api/auth/]
+
+
+### Login [POST /api/auth/login/]
+
+Login the user with an email and password.
+
++ Request (application/json)
+
+    + Body
+
+            {"email": "email@emai.com",
+            "password": "testepwd"}
+
++ Response 200 (application/json)
+
+        {
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InJmZXJyZWlyYSIsImV4cCI6MTUxODk5NTc3NywiZW1haWwiOiJyZmVycmVpcmFAYmluYXJ5ZWRnZS5pbyIsIm9yaWdfaWF0IjoxNTE4ODIyOTc3fQ.7vPZC5JIf8FBBucys8ko6SdZV09qFLFcnOlpEV3AWXM"
+        }
+
++ Response 404 (application/json)
+
+        {
+            "detail": "Not found."
+        }
+
++ Response 400 (application/json)
+
+        {
+            "non_field_errors": [
+                "Unable to log in with provided credentials."
+            ]
+        }
+
++ Response 500 (application/json)
+
+        {}
