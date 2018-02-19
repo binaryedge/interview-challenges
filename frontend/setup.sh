@@ -15,27 +15,6 @@ if [ -n "$1" ] && [ $1 = "build" ]; then
     cd api
 
     docker build -t binaryedge/be-dataleaks-example-api .
-
-    docker run --rm  \
-      -v $(pwd):/code/ \
-      binaryedge/be-dataleaks-example-api rm -rf db.sqlite3
-
-    echo "---------------------"
-    echo "Migrating database..."
-    echo "---------------------"
-
-    docker run --rm  \
-      -v $(pwd):/code/ \
-      binaryedge/be-dataleaks-example-api python3 manage.py migrate
-
-    echo "---------------------"
-    echo "Generate data..."
-    echo "---------------------"
-
-    docker run --rm  \
-      -v $(pwd):/code/ \
-      binaryedge/be-dataleaks-example-api python3 manage.py generate
-
 fi
 
 if [ -n "$1" ] && [ $1 = "show_emails" ]; then
@@ -64,7 +43,7 @@ if [ -n "$1" ] && [ $1 = "server" ]; then
       --name be-dataleaks-example-api \
       -p 8000:8000 \
       -v $(pwd):/code/ \
-      binaryedge/be-dataleaks-example-api python3 manage.py runserver 0.0.0.0:8000
+      binaryedge/be-dataleaks-example-api
 
 fi
 

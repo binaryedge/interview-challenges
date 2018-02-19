@@ -1,5 +1,13 @@
 # Front-End BinaryEdge Challenge
 
+## Emails present in all dataleaks:
+
+- example1@example.com
+- example2@example.com
+- example3@example.com
+- example4@example.com
+- example5@example.com
+
 ## How to run setup.sh
 
 ### Build docker image
@@ -13,7 +21,7 @@ In the end of the program the script will return 10 emails to use in further tes
 
 ### Show all emails
 
-The script will generate more than 10 emails, to see all of them:
+The script will generate more than 10 emails (total of 1600 emails), to see all of them:
 
 $ ./setup.sh show_emails
 
@@ -36,7 +44,7 @@ See docs folder to see API docs.
 ## How to use
 
 - Don't forget to build the image first (it will create a new database with data).
-- Then, create a user.
+- Then, create a user if you want or use: email@email.com and reverse as pwd.
 - And now you can run the server.
-- Login with the created user.
+- Login with the user credentials.
 - Use the API with the returned Token.
