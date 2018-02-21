@@ -10,7 +10,7 @@ The data leaks API with random domains and emails. These include:
 
 ## DataLeak API [/api/v1]
 
-### Search if an email is in some data leaks [GET /api/v1/email/dataleaks{?email}]
+### Search if an email is in some data leaks [GET /api/v1/email/dataleaks/{?email}]
 
 Returns a list of dataleaks where the email is present.
 
@@ -55,7 +55,7 @@ Returns a list of dataleaks where the email is present.
         }
 
 
-### Search if a domain is in some data leaks [GET /api/v1/domain/dataleaks{?domain}]
+### Search if a domain is in some data leaks [GET /api/v1/domain/dataleaks/{?domain}]
 
 Returns a list of dataleaks where the domain is present.
 
@@ -123,8 +123,8 @@ Login the user with an email and password.
 
     + Body
 
-            {"email": "email@emai.com",
-            "password": "testepwd"}
+            {"email": "email@email.com",
+            "password": "reverse"}
 
 + Response 200 (application/json)
 
