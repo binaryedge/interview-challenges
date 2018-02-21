@@ -23,12 +23,8 @@ if [ -n "$1" ] && [ $1 = "show_emails" ]; then
     echo "Show all emails..."
     echo "---------------------"
 
-    cd api
-
     docker run --rm  \
-      -v $(pwd):/code/ \
       binaryedge/be-dataleaks-example-api python3 manage.py show_emails
-
 fi
 
 if [ -n "$1" ] && [ $1 = "server" ]; then
@@ -42,7 +38,6 @@ if [ -n "$1" ] && [ $1 = "server" ]; then
     docker run --rm  \
       --name be-dataleaks-example-api \
       -p 8000:8000 \
-      -v $(pwd):/code/ \
       binaryedge/be-dataleaks-example-api
 
 fi
@@ -53,8 +48,6 @@ if [ -n "$1" ] && [ $1 = "create_user" ]; then
     echo "Create an user..."
     echo "---------------------"
 
-    cd api
-
-    docker run --rm -i -t -v $(pwd):/code/ binaryedge/be-dataleaks-example-api python3 manage.py createsuperuser
+    docker exec -it be-dataleaks-example-api python3 manage.py createsuperuser
 
 fi

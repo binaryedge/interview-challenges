@@ -19,21 +19,21 @@ generate data to use in testing (e-mail's, domains and dataleaks).
 
 In the end of the program the script will return 10 emails to use in further testing.
 
-### Show all emails
-
-The script will generate more than 10 emails (total of 1600 emails), to see all of them:
-
-$ ./setup.sh show_emails
-
 ### Run server
 
 To run server in port 8000:
 
 $ ./setup.sh server
 
+### Show all emails
+
+The script will generate more than 10 emails (total of 1600 emails), to see all of them:
+
+$ ./setup.sh show_emails
+
 ### Create user
 
-To create a new user:
+To create a new user (we assume that the server is running):
 
 $ ./setup.sh create_user
 
@@ -44,7 +44,7 @@ See docs folder to see API docs.
 ## How to use
 
 - Don't forget to build the image first (it will create a new database with data).
-- Then, create a user if you want or use: email@email.com and reverse as pwd.
 - And now you can run the server.
+- Then, create a user if you want or use: email@email.com and "reverse" as pwd.
 - Login with the user credentials.
 - Use the API with the returned Token.
